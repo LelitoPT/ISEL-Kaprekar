@@ -40,19 +40,21 @@ public class Kaprekar {
     String num_a = "";
     String num_b = "";
     int minus_ab = 0;
+    char pivot = 0;
     char [] comp =  new char [in.length()];
     do {
         for (int x = 0 ; x < in.length() ; x++ ) {
           tgt = in.charAt(x);
-            for (int a = 1; a < in.length() ; a++ ) {
+            for (int a = 0; a < in.length() ; a++ ) {
               if (tgt > in.charAt(a)) {
                 continue;
               }
               else {
+                comp[x] = in.charAt(a);
                 break;
               }
             }
-            comp[x] = tgt;
+            //comp[x] = tgt;
         }
         System.out.println(
           i + ": N=" + in +
