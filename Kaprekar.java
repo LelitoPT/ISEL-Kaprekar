@@ -17,7 +17,7 @@ public class Kaprekar {
     char prev = tgt;
     for (int i = 0; i < in.length() ; i++) {
       tgt = in.charAt(i);
-      if (tgt < 48 || tgt > 57) {
+      if (tgt < '0' || tgt > '9') {
         System.out.println("Dígito " + tgt + " inválido");
         System.exit(0);
       }
@@ -34,28 +34,25 @@ public class Kaprekar {
       System.exit(0);
     }
 
-    int k_num = Integer.parseInt(in);
-
+    // in = args[0] "2016"
     int i = 1;
     String num_a = "";
     String num_b = "";
     int minus_ab = 0;
-    char pivot = 0;
+    String tmp_str = in;
+    char max = 0;
     char [] comp =  new char [in.length()];
     do {
         for (int x = 0 ; x < in.length() ; x++ ) {
-          tgt = in.charAt(x);
-            for (int a = 0; a < in.length() ; a++ ) {
-              if (tgt > in.charAt(a)) {
-                continue;
-              }
-              else {
-                comp[x] = in.charAt(a);
-                break;
-              }
-            }
+          tgt = tmp_str.charAt(x);
+          if (tgt > max) {
+            max = tgt;
+            tmp_str += tgt;
+          }
+          }
             //comp[x] = tgt;
-        }
+            System.out.println(tgt);
+
         System.out.println(
           i + ": N=" + in +
           " A=" + num_a +
